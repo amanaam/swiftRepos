@@ -1,8 +1,15 @@
 import SwiftUI
 
 struct RepositoryRow: View {
+  var repo: Repository
     var body: some View {
-      // display a repository's name and decription instead of generic Hello World! text
-      Text("Hello World!")
+      HStack{
+      Text(repo.name).font(
+        .headline
+      )
+      Text(repo.itemDescription ?? "").font(
+        .subheadline
+      )
+        NavigationLink("", destination: WebView(request: URLRequest(url:URL(string: repo.htmlURL)!)))}
   }
 }
